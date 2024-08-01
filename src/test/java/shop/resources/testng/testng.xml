@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ShopOrdering">
+    <parameter name="baseUrl" value="http://shop.qatl.ru"/>
+    <parameter name="username" value="vtv"/>
+    <parameter name="password" value="Test123!"/>
+    <parameter name="loginHeader" value="Вход"/>
+    <parameter name="loginMessage" value="Вы успешно авторизованы"/>
+    <parameter name="searchString" value="1672087411"/>
+    <parameter name="productTitle" value="1672087411"/>
+    <parameter name="productPrice" value="$100"/>
+    <parameter name="productCount" value="1"/>
+    <parameter name="orderSummaryBucket" value="$100"/>
+    <parameter name="orderTableHeadersBucket" value="Фото Наименование Кол-во Цена"/>
+    <parameter name="note" value="Осторожно! Заказаны бьющиеся предметы"/>
+    <test name="shop validation">
+        <classes>
+            <class name="shop.ui.tests.ShopUITests"/>
+            <methods>
+                <exclude name="login" />
+                <exclude name="searchProduct" />
+                <exclude name="addProductToBucket" />
+                <include name="order" />
+            </methods>
+        </classes>
+    </test>
+</suite>
